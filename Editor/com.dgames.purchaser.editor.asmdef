@@ -1,0 +1,16 @@
+{
+    "name": "com.dgames.purchaser.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7f92ca7e9d3f2458a8254dbedbdcb22d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
