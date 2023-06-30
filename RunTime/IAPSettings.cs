@@ -18,7 +18,6 @@ namespace DGames.Purchasing
     public partial class IAPSettings
     {
         public static IAPSettings Default => Resources.Load<IAPSettings>(nameof(IAPSettings));
-        public const string DEFAULT_NAME = nameof(IAPSettings);
         
                 
 #if UNITY_EDITOR

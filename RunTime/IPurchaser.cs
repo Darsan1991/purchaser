@@ -1,6 +1,7 @@
 #if IN_APP
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Purchasing;
 
 namespace DGames.Purchasing
@@ -13,6 +14,7 @@ namespace DGames.Purchasing
         event Action<string, bool> ItemPurchased;
 
         event Action<bool> RestorePurchased;
+
         bool Initialized { get; }
         IEnumerable<string> ConsumableItems { get; }
         IEnumerable<string> NonConsumableItems { get; }
@@ -35,6 +37,26 @@ namespace DGames.Purchasing
         void BuyProduct(string productId);
         void Restore();
         Product GetProduct(string id);
+    }
+
+    public interface INonConsumableItemPurchaser
+    {
+        event Action<INonConsumableItemPurchaser, bool> ItemPurchased;
+
+        string Id { get; }
+
+        bool Initialized { get; }
+        string GetPrice();
+        void Buy(Action<bool> callback);
+
+        bool ItemAlreadyPurchased();
+
+        Product Get();
+    }
+
+    public static class PurchaserExtensions
+    {
+        public static T Get<T>(this IPurchaser purchaser) where T : INonConsumableItemPurchaser => purchaser is MonoBehaviour mono ? mono.GetComponent<T>() : default;
     }
 }
 #endif

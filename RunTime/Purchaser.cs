@@ -191,8 +191,6 @@ namespace DGames.Purchasing
         }
 
 
-       
-
 
     }
     #endif
