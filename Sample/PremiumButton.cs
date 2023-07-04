@@ -7,7 +7,7 @@ namespace DGames.Purchasing.Samples
     public class PremiumButton : MonoBehaviour, IPointerClickHandler
     {
 
-        [SerializeField] private Value<bool> _premiumValue;
+        [SerializeField] private ValueField<bool> _premiumValueField = new("PREMIUM");
 #if IN_APP
         public PremiumPurchaser Purchaser => DGames.Purchasing.Purchaser.Instance.Get<PremiumPurchaser>();
 #endif
@@ -15,7 +15,7 @@ namespace DGames.Purchasing.Samples
         private void Awake()
         {
 #if IN_APP
-            gameObject.SetActive(!_premiumValue.CurrentValue);
+            gameObject.SetActive(!_premiumValueField);
 #else
         gameObject.SetActive(false);
 #endif
@@ -56,7 +56,7 @@ namespace DGames.Purchasing.Samples
 
         private void PurchaserOnItemPurchased(INonConsumableItemPurchaser nonConsumableItemPurchaser, bool b)
         {
-            gameObject.SetActive(_premiumValue.CurrentValue);
+            gameObject.SetActive(_premiumValueField);
         }
 #endif
         

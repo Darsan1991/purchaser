@@ -11,7 +11,7 @@ namespace DGames.Purchasing
     public partial class PremiumPurchaser : MonoBehaviour
     {
         [SerializeField] private string _name = "NO_ADS";
-        [SerializeField] private Value<bool> _isPremiumValue;
+        [SerializeField] private ValueField<bool> _premium = new("PREMIUM");
     }
         
     #if IN_APP
@@ -41,8 +41,8 @@ namespace DGames.Purchasing
             
             Purchaser.BuyProduct(Id, success =>
             {
-                if(success && _isPremiumValue)
-                    _isPremiumValue.Set(true);
+                if(success && _premium)
+                    _premium.Value.Set(true);
                 
                 ItemPurchased?.Invoke(this, success);
                 callback?.Invoke(success);
