@@ -42,7 +42,7 @@ namespace DGames.Purchasing
             Purchaser.BuyProduct(Id, success =>
             {
                 if(success)
-                    _premium.Value.Set(true);
+                    _premium.Item.Set(true);
                 
                 ItemPurchased?.Invoke(this, success);
                 callback?.Invoke(success);
