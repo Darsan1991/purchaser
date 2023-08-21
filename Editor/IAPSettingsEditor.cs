@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DGames.Purchasing
 {
     
-        [CustomEditor(typeof(IAPSettings))]
+        // [CustomEditor(typeof(IAPSettings))]
 
     public class IAPSettingsEditor : Editor
     {

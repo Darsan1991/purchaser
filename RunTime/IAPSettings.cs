@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DGames.Essentials.Attributes;
+using DGames.Essentials.Unity;
 using UnityEngine;
 
 namespace DGames.Purchasing
 {
+    [DashboardResourceItem(path:"Settings")]
     public partial class IAPSettings : ScriptableObject
     {
-        [SerializeField] private bool _iapActive;
-        [SerializeField] private List<IAPProduct> _products = new();
+        [ScriptableSymbolsToggle("","IN_APP",BuildTargetGroup.Android | BuildTargetGroup.iOS)][SerializeField] private bool _iapActive;
+        [Inline()][SerializeField] private List<IAPProduct> _products = new();
         
         public bool IAPActive => _iapActive;
 
