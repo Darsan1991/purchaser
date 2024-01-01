@@ -8,6 +8,7 @@ using UnityEngine;
 namespace DGames.Purchasing
 {
     [DashboardResourceItem(path:"Settings")]
+    [HideScriptField]
     public partial class IAPSettings : ScriptableObject
     {
         [ScriptableSymbolsToggle("","IN_APP",BuildTargetGroup.Android | BuildTargetGroup.iOS)][SerializeField] private bool _iapActive;

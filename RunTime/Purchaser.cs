@@ -12,6 +12,7 @@ using UnityEngine.Purchasing.Extension;
 
 namespace DGames.Purchasing
 {
+    [AddComponentMenu("Purchaser/Purchaser")]
     public partial class Purchaser : Singleton<Purchaser>
     {
         

@@ -8,6 +8,7 @@ using UnityEngine.Purchasing;
 
 namespace DGames.Purchasing
 {
+    [AddComponentMenu("Purchaser/Premium Purchaser")]
     public partial class PremiumPurchaser : MonoBehaviour
     {
         [SerializeField] private string _name = "NO_ADS";
